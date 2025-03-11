@@ -7,7 +7,7 @@ then
     version=2.12.2
 fi
 
-docker run -i -v $PWD:/pack hank997/harbor-arm::${version} mv  /harbor-offline-installer-${version}.tgz /pack
+docker run -i -v $PWD:/pack hank997/harbor-arm:${version} mv  /harbor-offline-installer-${version}.tgz /pack
 
 tar xf harbor-offline-installer-${version}.tgz
 
