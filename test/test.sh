@@ -20,11 +20,12 @@ sed -i 's#reg.mydomain.com#test.hankbook.cn#g' harbor.yml
 sed -i "s#certificate: .*#certificate: $PWD/cert.pem#g" harbor.yml
 sed -i "s#private_key: .*#private_key: $PWD/key.pem#g" harbor.yml
 
+docker load < harbor.${version}.tar.gz
+./prepare
+docker-compose up -d
 
 
-
-
-bash install.sh
+# bash install.sh
 
 for i in {1..10}
 do
