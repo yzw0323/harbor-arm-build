@@ -1,0 +1,2 @@
+# 问题
+由于github的actions的runner是普通用户。并且harbor执行prepare的时候会生成root用户的文件，导致权限不足失败，后期看看怎么整这个
