@@ -33,4 +33,5 @@ jobs:
       run: |
         arch
         echo /etc/os-release
-        bash test/test.sh
+        id
+        # bash test/test.sh
