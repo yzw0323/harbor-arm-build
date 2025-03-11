@@ -1,11 +1,13 @@
 #!/bin/bash
+set -o nounset
+set -o errexit
 
 if [[ -z $version ]]
 then
     version=2.12.2
 fi
 
-docker run -it -v $PWD:/pack hank997/harbor-arm::${version} mv  /harbor-offline-installer-${version}.tgz /pack
+docker run -i -v $PWD:/pack hank997/harbor-arm::${version} mv  /harbor-offline-installer-${version}.tgz /pack
 
 tar xf harbor-offline-installer-${version}.tgz
 
