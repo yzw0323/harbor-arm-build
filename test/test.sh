@@ -11,10 +11,20 @@ docker run -i -v $PWD:/pack hank997/harbor-arm:${version} mv  /harbor-offline-in
 
 tar xf harbor-offline-installer-${version}.tgz
 
-mv harbor/harbor.yml.tmpl harbor/harbor.yml
-sed -i 's#reg.mydomain.com#test.hankbook.cn#g' harbor/harbor.yml
+cd harbor
 
-cd harbor/ ; bash install.sh
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/C=CN/ST=Beijing/L=Shanghai/O=YourOrg/CN=harbor.local"
+
+mv harbor.yml.tmpl harbor.yml
+sed -i 's#reg.mydomain.com#test.hankbook.cn#g' harbor.yml
+sed -i 's#certificate: .*#certificate: ./cert.pem#g' harbor.yml
+sed -i 's#private_key: .*#private_key: ./key.pem#g' harbor.yml
+
+
+
+
+
+bash install.sh
 
 for i in {1..10}
 do
