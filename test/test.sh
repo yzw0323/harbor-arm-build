@@ -22,7 +22,11 @@ sed -i "s#private_key: .*#private_key: $PWD/key.pem#g" harbor.yml
 
 docker load < harbor.${version}.tar.gz
 ./prepare
-docker-compose up -d
+wget https://github.com/docker/compose/releases/download/v2.33.1/docker-compose-linux-aarch64
+
+mv docker-compose-linux-aarch64 docker-compose
+chmod +x docker-compose
+./docker-compose up -d
 
 
 # bash install.sh
