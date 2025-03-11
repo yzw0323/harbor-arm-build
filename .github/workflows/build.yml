@@ -6,6 +6,9 @@ name: harbor-build
 on:
   workflow_dispatch:
 
+env:
+  version: 2.12.2
+
 jobs:
 
   build:
@@ -32,3 +35,12 @@ jobs:
         echo /etc/os-release
         bash build.sh
 
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        push: true
+        build-args: ${{ env.version }}
+        tags: hank997/harbor-arm:${{ env.version }}
+        platforms: linux/arm64
+        file: Dockerfile
