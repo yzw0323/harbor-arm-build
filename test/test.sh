@@ -17,8 +17,8 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 
 mv harbor.yml.tmpl harbor.yml
 sed -i 's#reg.mydomain.com#test.hankbook.cn#g' harbor.yml
-sed -i 's#certificate: .*#certificate: ./cert.pem#g' harbor.yml
-sed -i 's#private_key: .*#private_key: ./key.pem#g' harbor.yml
+sed -i "s#certificate: .*#certificate: $PWD/cert.pem#g" harbor.yml
+sed -i "s#private_key: .*#private_key: $PWD/key.pem#g" harbor.yml
 
 
 
