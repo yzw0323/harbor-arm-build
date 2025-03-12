@@ -31,8 +31,9 @@ jobs:
     - name: package_offline
       id: image_tag
       run: |
-        arch
-        echo /etc/os-release
+        echo arch: $(arch)
+        echo version: ${{ env.version }}
+        id
         bash build.sh
 
     - name: Build and push Docker image

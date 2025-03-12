@@ -5,6 +5,8 @@ then
     version=2.12.2
 fi
 
+echo version: $version
+
 git clone --branch v${version} https://github.com/goharbor/harbor.git
 
 cd harbor
