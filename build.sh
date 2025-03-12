@@ -42,7 +42,7 @@ compare_versions() {
     echo "0"
 }
 # 
-if compare_versions $version 2.12.0 
+if compare_versions 2.12.0  $version
 then
     # 2.12.2版本之前需要替换
     echo 替换
