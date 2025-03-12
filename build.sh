@@ -45,6 +45,7 @@ compare_versions() {
 if compare_versions $version 2.12.0 
 then
     # 2.12.2版本之前需要替换
+    echo 替换
     sed -i 's#SPECTRAL_VERSION/spectral-linux#SPECTRAL_VERSION/spectral-linux-arm64#g' ./tools/spectral/Dockerfile
 fi
 
