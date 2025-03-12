@@ -41,7 +41,7 @@ jobs:
       with:
         context: .
         push: true
-        build-args: ${{ env.version }}
+        build-args: version=${{ env.version }}
         tags: hank997/harbor-arm:${{ env.version }}
         platforms: linux/arm64
         file: Dockerfile
