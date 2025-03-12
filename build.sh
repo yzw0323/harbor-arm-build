@@ -46,6 +46,7 @@ if compare_versions 2.12.0  $version
 then
     # 2.12.2版本之前需要替换
     echo 替换
+    sed -i 's#SPECTRAL_VERSION=v6.1.0#SPECTRAL_VERSION=v6.11.0#g' ./Makefile
     sed -i 's#SPECTRAL_VERSION/spectral-linux#SPECTRAL_VERSION/spectral-linux-arm64#g' ./tools/spectral/Dockerfile
 fi
 
