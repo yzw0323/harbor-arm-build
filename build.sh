@@ -1,8 +1,9 @@
 #!/bin/bash
 
+# 配置在build.yml下面进行修改
 if [[ -z $version ]]
 then
-    version=2.9.0
+    version=2.11.2
 fi
 
 echo version: $version
