@@ -2,7 +2,7 @@
 
 if [[ -z $version ]]
 then
-    version=2.12.2
+    version=2.9.0
 fi
 
 echo version: $version
