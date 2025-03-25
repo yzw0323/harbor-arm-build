@@ -51,6 +51,21 @@ then
     sed -i 's#SPECTRAL_VERSION/spectral-linux#SPECTRAL_VERSION/spectral-linux-arm64#g' ./tools/spectral/Dockerfile
 fi
 
+cat > make/photon/redis/Dockerfile << EOF
+FROM redis
+VOLUME /var/lib/redis
+WORKDIR /var/lib/redis
+COPY docker-healthcheck /usr/bin/
+COPY redis.conf /etc/redis.conf
+RUN chmod +x /usr/bin/docker-healthcheck \\
+    && chown redis:redis /usr/bin/docker-healthcheck \\
+    && chown redis:redis /etc/redis.conf
+
+HEALTHCHECK CMD ["docker-healthcheck"]
+USER redis
+CMD ["redis-server", "/etc/redis.conf"]
+EOF
+
 
 make package_offline
 
