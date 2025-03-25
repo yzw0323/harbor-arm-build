@@ -55,8 +55,8 @@ cat > make/photon/redis/Dockerfile << EOF
 FROM redis
 VOLUME /var/lib/redis
 WORKDIR /var/lib/redis
-COPY docker-healthcheck /usr/bin/
-COPY redis.conf /etc/redis.conf
+COPY ./make/photon/redis/docker-healthcheck /usr/bin/
+COPY ./make/photon/redis/redis.conf /etc/redis.conf
 RUN chmod +x /usr/bin/docker-healthcheck \\
     && chown redis:redis /usr/bin/docker-healthcheck \\
     && chown redis:redis /etc/redis.conf
