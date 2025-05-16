@@ -3,7 +3,7 @@
 # 配置在build.yml下面进行修改
 if [[ -z $version ]]
 then
-    version=2.11.2
+    version=2.5.6
 fi
 
 echo version: $version
